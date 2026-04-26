@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>House Warming Invitation</title>
+
+<style>
+:root {
+    --primary: #2f2f2f;
+    --accent: #c8a96a;
+    --bg: #f7f7f7;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+body {
+    background: var(--bg);
+    color: var(--primary);
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("house1.jpg") center/cover no-repeat;
+    filter: blur(6px) brightness(0.6);
+    z-index: -2;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: -1;
+}
+
+.card {
+    background: rgba(255,255,255,0.95);
+    padding: 35px 25px;
+    border-radius: 16px;
+    max-width: 420px;
+    width: 90%;
+    animation: fadeUp 1s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.names {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 15px 0;
+}
+
+.details {
+    margin-top: 15px;
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+.footer-img {
+    margin-top: 25px;
+    height: 180px;
+    background: url("house2.png") center/contain no-repeat;
+    border-radius: 30px;
+}
+
+.actions {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+button, a.btn {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+}
+
+.map-btn {
+    background: #444;
+    color: white;
+}
+
+.whatsapp-btn {
+    background: #25D366;
+    color: white;
+}
+
+.music-btn {
+    background: var(--accent);
+    color: white;
+}
+
+.note {
+    margin-top: 15px;
+    font-size: 13px;
+    color: #666;
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+    <div class="card">
+        <h1>House Warming Invitation</h1>
+
+        <div class="names">Dilan & Hasini</div>
+
+        <div class="details">
+            We warmly invite you to celebrate our new home.<br><br>
+            📍 1/3A, Azalea Garden, Maheepalagoda, Yakkala<br>
+            🗓 30th April<br>
+            ⏰ 8:00 AM
+        </div>
+
+        <div class="footer-img"></div>
+
+        <div class="actions">
+            <a class="btn map-btn" href="https://maps.app.goo.gl/dWDGYZGHDzTRpadr9" target="_blank">
+                View Location
+            </a>
+        </div>
+
+        <div class="note">
+            Your presence means a lot to us
+        </div>
+    </div>
+</section>
+
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+let isPlaying = false;
+const audio = document.getElementById("bgMusic");
+
+function toggleMusic() {
+    if (isPlaying) {
+        audio.pause();
+        isPlaying = false;
+        event.target.innerText = "🔊 Play Music";
+    } else {
+        audio.play();
+        isPlaying = true;
+        event.target.innerText = "🔇 Stop Music";
+    }
+}
+</script>
+
+</body>
+</html>
